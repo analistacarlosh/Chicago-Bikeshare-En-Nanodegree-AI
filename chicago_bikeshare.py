@@ -28,8 +28,10 @@ input("Press Enter to continue...")
 # TASK 1
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
+twenty_first_gender = []
 for i in range(20):
     print(data_list[i])
+    twenty_first_gender.append(str(i + 1) + " - " + data_list[i][6])
 
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
@@ -40,9 +42,8 @@ data_list = data_list[1:]
 input("Press Enter to continue...")
 # TASK 2
 # TODO: Print the `gender` of the first 20 rows
-
 print("\nTASK 2: Printing the genders of the first 20 samples")
-
+print("\n".join(twenty_first_gender))
 
 # Cool! We can get the rows(samples) iterating with a for and the columns(features) by index.
 # But it's still hard to get a column in a list. Example: List with all genders
