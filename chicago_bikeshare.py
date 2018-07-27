@@ -67,9 +67,12 @@ assert len(column_to_list(data_list, -2)) == 1551505, "TASK 3: Wrong lenght retu
 assert column_to_list(data_list, -2)[0] == "" and column_to_list(data_list, -2)[1] == "Male", "TASK 3: The list doesn't match."
 # -----------------------------------------------------
 
+def get_gender_list(data):
+    return column_to_list(data_list, -2)
+
 input("Press Enter to continue...")
 # Now we know how to access the features, let's count how many Males and Females the dataset have
-gender_list = column_to_list(data_list, -2)
+gender_list = get_gender_list(data_list)
 # TASK 4
 # TODO: Count each gender. You should not use a function to do that.
 male    = gender_list.count("Male")
@@ -83,17 +86,16 @@ print("Male: ", male, "\nFemale: ", female)
 assert male == 935854 and female == 298784, "TASK 4: Count doesn't match."
 # -----------------------------------------------------
 
-'''
 input("Press Enter to continue...")
 # Why don't we creeate a function to do that?
 # TASK 5
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
-    male = 0
-    female = 0
+    gender_list = get_gender_list(data_list)
+    male = gender_list.count("Male")
+    female = gender_list.count("Female")
     return [male, female]
-
 
 print("\nTASK 5: Printing result of count_gender")
 print(count_gender(data_list))
@@ -104,6 +106,7 @@ assert len(count_gender(data_list)) == 2, "TASK 5: Wrong lenght returned."
 assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 298784, "TASK 5: Returning wrong result!"
 # -----------------------------------------------------
 
+'''
 input("Press Enter to continue...")
 # Now we can count the users, which gender use it the most?
 # TASK 6
