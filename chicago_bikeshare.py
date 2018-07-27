@@ -1,9 +1,8 @@
-
 # coding: utf-8
 
 # Here goes the imports
 import csv
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # Let's read the data as a list
 print("Reading the document...")
@@ -29,6 +28,8 @@ input("Press Enter to continue...")
 # TASK 1
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
+for i in range(20):
+    print(data_list[i])
 
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
@@ -45,7 +46,7 @@ print("\nTASK 2: Printing the genders of the first 20 samples")
 
 # Cool! We can get the rows(samples) iterating with a for and the columns(features) by index.
 # But it's still hard to get a column in a list. Example: List with all genders
-
+'''
 input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
@@ -222,3 +223,4 @@ if answer == "yes":
     assert len(types) == 3, "TASK 11: There are 3 types of gender!"
     assert sum(counts) == 1551505, "TASK 11: Returning wrong result!"
     # -----------------------------------------------------
+'''
