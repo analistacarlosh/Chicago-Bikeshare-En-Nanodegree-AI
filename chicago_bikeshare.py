@@ -28,10 +28,8 @@ input("Press Enter to continue...")
 # TASK 1
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
-twenty_first_gender = []
 for i in range(20):
     print(data_list[i])
-    twenty_first_gender.append(str(i + 1) + " - " + data_list[i][6])
 
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
@@ -43,19 +41,21 @@ input("Press Enter to continue...")
 # TASK 2
 # TODO: Print the `gender` of the first 20 rows
 print("\nTASK 2: Printing the genders of the first 20 samples")
-print("\n".join(twenty_first_gender))
+for i in range(20):
+    print(str(i + 1) + " - " + data_list[i][6])
 
 # Cool! We can get the rows(samples) iterating with a for and the columns(features) by index.
 # But it's still hard to get a column in a list. Example: List with all genders
-'''
+
 input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
 def column_to_list(data, index):
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
+    for colun in data:
+        column_list.append(colun[index])
     return column_list
-
 
 # Let's check with the genders if it's working (only the first 20)
 print("\nTASK 3: Printing the list of genders of the first 20 samples")
@@ -67,6 +67,7 @@ assert len(column_to_list(data_list, -2)) == 1551505, "TASK 3: Wrong lenght retu
 assert column_to_list(data_list, -2)[0] == "" and column_to_list(data_list, -2)[1] == "Male", "TASK 3: The list doesn't match."
 # -----------------------------------------------------
 
+'''
 input("Press Enter to continue...")
 # Now we know how to access the features, let's count how many Males and Females the dataset have
 # TASK 4
