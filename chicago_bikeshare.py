@@ -106,16 +106,23 @@ assert len(count_gender(data_list)) == 2, "TASK 5: Wrong lenght returned."
 assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 298784, "TASK 5: Returning wrong result!"
 # -----------------------------------------------------
 
-'''
 input("Press Enter to continue...")
 # Now we can count the users, which gender use it the most?
 # TASK 6
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
-    answer = ""
-    return answer
+    gender_list = get_gender_list(data_list)
+    male = gender_list.count("Male")
+    female = gender_list.count("Female")
 
+    if(male > female):
+        answer = "Male"
+    elif(female > male):
+        answer = "Female"
+    else:
+        answer = "Equal"
+    return answer
 
 print("\nTASK 6: Which one is the most popular gender?")
 print("Most popular gender is: ", most_popular_gender(data_list))
@@ -125,6 +132,7 @@ assert type(most_popular_gender(data_list)) is str, "TASK 6: Wrong type returned
 assert most_popular_gender(data_list) == "Male", "TASK 6: Returning wrong result!"
 # -----------------------------------------------------
 
+'''
 # If it's everything running as expected, check this graph!
 gender_list = column_to_list(data_list, -2)
 types = ["Male", "Female"]
