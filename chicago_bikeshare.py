@@ -2,7 +2,7 @@
 
 # Here goes the imports
 import csv
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 # Let's read the data as a list
 print("Reading the document...")
@@ -132,7 +132,6 @@ assert type(most_popular_gender(data_list)) is str, "TASK 6: Wrong type returned
 assert most_popular_gender(data_list) == "Male", "TASK 6: Returning wrong result!"
 # -----------------------------------------------------
 
-'''
 # If it's everything running as expected, check this graph!
 gender_list = column_to_list(data_list, -2)
 types = ["Male", "Female"]
@@ -147,10 +146,29 @@ plt.show(block=True)
 
 input("Press Enter to continue...")
 # TASK 7
+# Should return a list with [subscriber, customer] (e.g., [10, 15] means 10 Subscriber, 15 Customer)
+def count_user_types(data_list):
+    subscriber  = data_list.count("Subscriber")
+    customer    = data_list.count("Customer")
+    return [subscriber, customer]
+
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
+user_types_list = column_to_list(data_list, -3)
+# Subscriber or Customer
+types = ["Subscriber", "Customer"]
+user_types_quantity = count_user_types(user_types_list)
+print("\n result of user types count:")
+print(user_types_quantity)
+y_pos = list(range(len(types)))
+plt.bar(y_pos, user_types_quantity)
+plt.ylabel('Quantity')
+plt.xlabel('User Types')
+plt.xticks(y_pos, types)
+plt.title('Quantity by User Types')
+plt.show(block=True)
 
-
+'''
 input("Press Enter to continue...")
 # TASK 8
 # TODO: Answer the following question
