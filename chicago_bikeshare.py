@@ -26,7 +26,7 @@ print(data_list[1])
 
 input("Press Enter to continue...")
 # TASK 1
-# TODO: Print the first 20 rows using a loop to identify the data.
+# Done: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
 for i in range(20):
     print(data_list[i])
@@ -39,7 +39,7 @@ data_list = data_list[1:]
 
 input("Press Enter to continue...")
 # TASK 2
-# TODO: Print the `gender` of the first 20 rows
+# Done: Print the `gender` of the first 20 rows
 print("\nTASK 2: Printing the genders of the first 20 samples")
 for i in range(20):
     print(str(i + 1) + " - " + data_list[i][6])
@@ -49,7 +49,7 @@ for i in range(20):
 
 input("Press Enter to continue...")
 # TASK 3
-# TODO: Create a function to add the columns(features) of a list in another list in the same order
+# Done: Create a function to add the columns(features) of a list in another list in the same order
 def column_to_list(data, index):
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
@@ -74,7 +74,7 @@ input("Press Enter to continue...")
 # Now we know how to access the features, let's count how many Males and Females the dataset have
 gender_list = get_gender_list(data_list)
 # TASK 4
-# TODO: Count each gender. You should not use a function to do that.
+# Done: Count each gender. You should not use a function to do that.
 male    = gender_list.count("Male")
 female  = gender_list.count("Female")
 
@@ -89,7 +89,7 @@ assert male == 935854 and female == 298784, "TASK 4: Count doesn't match."
 input("Press Enter to continue...")
 # Why don't we creeate a function to do that?
 # TASK 5
-# TODO: Create a function to count the genders. Return a list
+# Done: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
     gender_list = get_gender_list(data_list)
@@ -109,7 +109,7 @@ assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 29
 input("Press Enter to continue...")
 # Now we can count the users, which gender use it the most?
 # TASK 6
-# TODO: Create a function to get the most popular gender and print the gender as string.
+# Done: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
     gender_list = get_gender_list(data_list)
@@ -152,7 +152,7 @@ def count_user_types(data_list):
     customer    = data_list.count("Customer")
     return [subscriber, customer]
 
-# TODO: Plot a similar graph for user_types. Make sure the legend is correct.
+# Done: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
 user_types_list = column_to_list(data_list, -3)
 # Subscriber or Customer
@@ -168,20 +168,21 @@ plt.xticks(y_pos, types)
 plt.title('Quantity by User Types')
 plt.show(block=True)
 
-'''
 input("Press Enter to continue...")
 # TASK 8
-# TODO: Answer the following question
+# Done: Answer the following question
 male, female = count_gender(data_list)
+undefined_genders = len(data_list) - (male + female)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+answer = "Because there are " + str(undefined_genders) + " registers that are not defined the gender."
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
 assert answer != "Type your answer here.", "TASK 8: Write your own answer!"
 # -----------------------------------------------------
 
+'''
 input("Press Enter to continue...")
 # Let's work with the trip_duration now. We cant get some values from it.
 # TASK 9
