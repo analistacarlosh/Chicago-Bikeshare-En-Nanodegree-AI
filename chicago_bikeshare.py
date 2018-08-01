@@ -182,18 +182,19 @@ print("Answer:", answer)
 assert answer != "Type your answer here.", "TASK 8: Write your own answer!"
 # -----------------------------------------------------
 
-'''
 input("Press Enter to continue...")
 # Let's work with the trip_duration now. We cant get some values from it.
 # TASK 9
-# TODO: Find the Minimum, Maximum, Mean and Median trip duration.
+# Done: Find the Minimum, Maximum, Mean and Median trip duration.
 # You should not use ready functions to do that, like max() or min().
 trip_duration_list = column_to_list(data_list, 2)
-min_trip = 0.
-max_trip = 0.
-mean_trip = 0.
-median_trip = 0.
+trip_duration_list = list(map(float,trip_duration_list))
+trip_duration_list_ordened = sorted(trip_duration_list)
 
+min_trip = int(trip_duration_list_ordened[0])
+max_trip = int(trip_duration_list_ordened[-1])
+mean_trip = round(sum(trip_duration_list_ordened) / len(trip_duration_list_ordened))
+median_trip = int(trip_duration_list_ordened[len(trip_duration_list_ordened) // 2])
 
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
@@ -205,6 +206,7 @@ assert round(mean_trip) == 940, "TASK 9: mean_trip with wrong result!"
 assert round(median_trip) == 670, "TASK 9: median_trip with wrong result!"
 # -----------------------------------------------------
 
+'''
 input("Press Enter to continue...")
 # TASK 10
 # Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
