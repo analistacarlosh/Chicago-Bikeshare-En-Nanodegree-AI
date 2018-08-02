@@ -245,31 +245,31 @@ assert round(median_trip) == 670, "TASK 9: median_trip with wrong result!"
 input("Press Enter to continue...")
 # TASK 10
 # Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
-# TODO: Check types how many start_stations do we have using set()
-start_stations = column_to_list(data_list, 3)
-user_types = set(start_stations)
+# Done: Check types how many start_stations do we have using set()
+start_stations_list = column_to_list(data_list, 3)
+start_stations = set(start_stations_list)
 
 print("\nTASK 10: Printing start stations:")
-print(len(user_types))
+print(len(start_stations))
 # print(user_types)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
-assert len(user_types) == 582, "TASK 10: Wrong len of start stations."
+assert len(start_stations) == 582, "TASK 10: Wrong len of start stations."
 # -----------------------------------------------------
 
 input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
-      """
-      Example function with annotations.
-      Args:
-          param1: The first parameter.
-          param2: The second parameter.
-      Returns:
-          List of X values
+"""
+Example function with annotations.
+Args:
+  param1: The first parameter.
+  param2: The second parameter.
+Returns:
+  List of X values
 
-      """
+"""
 '''
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)
