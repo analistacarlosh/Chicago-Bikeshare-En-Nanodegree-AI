@@ -51,6 +51,14 @@ input("Press Enter to continue...")
 # TASK 3
 # Done: Create a function to add the columns(features) of a list in another list in the same order
 def column_to_list(data, index):
+    """
+    This function convert an column from a list to another list.
+    Args:
+      data: The list with some colums.
+      index: The index of collums that will be converted.
+    Returns:
+      List of values with index collumn
+    """
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
     for colun in data:
@@ -68,6 +76,13 @@ assert column_to_list(data_list, -2)[0] == "" and column_to_list(data_list, -2)[
 # -----------------------------------------------------
 
 def get_gender_list(data):
+    """
+    This function get the gender list that is defined by -2 index.
+    Args:
+      data: The list with some columns.
+    Returns:
+      Gender list
+    """
     return column_to_list(data_list, -2)
 
 input("Press Enter to continue...")
@@ -92,6 +107,13 @@ input("Press Enter to continue...")
 # Done: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
+    """
+    This function count the gender Male and Female.
+    Args:
+        data_list: The list with some columns.
+    Returns:
+        List with two index, Male and Female.
+    """
     gender_list = get_gender_list(data_list)
     male = gender_list.count("Male")
     female = gender_list.count("Female")
@@ -112,6 +134,13 @@ input("Press Enter to continue...")
 # Done: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
+    """
+    This function check the most popular gender.
+    Args:
+        data_list: The list with some columns data.
+    Returns:
+        answer: string with the most popular gender
+    """
     gender_list = get_gender_list(data_list)
     male = gender_list.count("Male")
     female = gender_list.count("Female")
@@ -148,6 +177,13 @@ input("Press Enter to continue...")
 # TASK 7
 # Should return a list with [subscriber, customer] (e.g., [10, 15] means 10 Subscriber, 15 Customer)
 def count_user_types(data_list):
+    """
+        This function count how many user types there are.
+        Args:
+            data_list: The list with some columns data.
+        Returns:
+            List: with two index, Subscriber and Customer.
+    """
     subscriber  = data_list.count("Subscriber")
     customer    = data_list.count("Customer")
     return [subscriber, customer]
@@ -221,7 +257,6 @@ print(len(user_types))
 assert len(user_types) == 582, "TASK 10: Wrong len of start stations."
 # -----------------------------------------------------
 
-'''
 input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
@@ -235,7 +270,7 @@ input("Press Enter to continue...")
           List of X values
 
       """
-
+'''
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)
 # TODO: Create a function to count user types without hardcoding the types
