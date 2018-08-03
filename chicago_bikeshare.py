@@ -3,6 +3,17 @@
 # Here goes the imports
 import csv
 import matplotlib.pyplot as plt
+import os
+import zipfile
+
+#Extraing the zip file
+if not os.path.exists("chicago.csv"):
+    zfile = zipfile.ZipFile("chicago.csv.zip")
+    zfile.extractall()
+    print("chicago.csv extracted.")
+
+if not os.path.exists("chicago.csv"):
+    print("Please, extract the chicago.csv.zip file and try again.")
 
 # Let's read the data as a list
 print("Reading the document...")
