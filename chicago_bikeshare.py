@@ -76,6 +76,22 @@ def column_to_list(data, index):
         column_list.append(colun[index])
     return column_list
 
+def get_gender_count(gender_list, gender: str):
+    """
+    This function return the count of gender.
+    Args:
+        gender_list: The gender list.
+    Returns:
+        gender_count: with sum of gender in the list.
+    """
+    gender_count: int = 0
+
+    for i in gender_list:
+        if i == gender:
+            gender_count += 1
+
+    return gender_count
+
 # Let's check with the genders if it's working (only the first 20)
 print("\nTASK 3: Printing the list of genders of the first 20 samples")
 print(column_to_list(data_list, -2)[:20])
@@ -101,8 +117,8 @@ input("Press Enter to continue...")
 gender_list = get_gender_list(data_list)
 # TASK 4
 # Done: Count each gender. You should not use a function to do that.
-male    = gender_list.count("Male")
-female  = gender_list.count("Female")
+male    = get_gender_count(gender_list, "Male")
+female  = get_gender_count(gender_list, "Female")
 
 # Checking the result
 print("\nTASK 4: Printing how many males and females we found")
@@ -126,8 +142,8 @@ def count_gender(data_list):
         List with two index, Male and Female.
     """
     gender_list = get_gender_list(data_list)
-    male = gender_list.count("Male")
-    female = gender_list.count("Female")
+    male   = get_gender_count(gender_list, "Male")
+    female = get_gender_count(gender_list, "Female")
     return [male, female]
 
 print("\nTASK 5: Printing result of count_gender")
@@ -152,9 +168,7 @@ def most_popular_gender(data_list):
     Returns:
         answer: string with the most popular gender
     """
-    gender_list = get_gender_list(data_list)
-    male = gender_list.count("Male")
-    female = gender_list.count("Female")
+    male, female = count_gender(data_list)
 
     if(male > female):
         answer = "Male"
@@ -187,16 +201,33 @@ plt.show(block=True)
 input("Press Enter to continue...")
 # TASK 7
 # Should return a list with [subscriber, customer] (e.g., [10, 15] means 10 Subscriber, 15 Customer)
-def count_user_types(data_list):
+def get_user_type_count(user_types_list, user_type: str):
     """
-        This function count how many user types there are.
-        Args:
-            data_list: The list with some columns data.
-        Returns:
-            List: with two index, Subscriber and Customer.
+    This function return the count of user types.
+    Args:
+        user_types_list: The user types list.
+        user_type: user type.
+    Returns:
+        user_type_count: Sum of user type in the list.
     """
-    subscriber  = data_list.count("Subscriber")
-    customer    = data_list.count("Customer")
+    user_type_count: int = 0
+
+    for i in user_types_list:
+        if i == user_type:
+            user_type_count += 1
+
+    return user_type_count
+
+def count_user_types(user_types_list):
+    """
+    This function count how many user types there are.
+    Args:
+        user_types_list: The list with some columns data.
+    Returns:
+        List: with two index, Subscriber and Customer.
+    """
+    subscriber  = get_user_type_count(user_types_list, "Subscriber")
+    customer    = get_user_type_count(user_types_list, "Customer")
     return [subscriber, customer]
 
 # Done: Plot a similar graph for user_types. Make sure the legend is correct.
@@ -229,6 +260,23 @@ print("Answer:", answer)
 assert answer != "Type your answer here.", "TASK 8: Write your own answer!"
 # -----------------------------------------------------
 
+def get_median(list):
+    """
+    This function return the median number of list.
+    Args:
+        list: The list with some columns data.
+    Returns:
+        median: media number of list.
+    """
+    if len(list) % 2 == 0:
+        # even
+        median = int(list[(len(list) // 2) - 1]) + int(list[len(list) // 2])
+        median = median / 2
+    else:
+        #odd
+        median = int(list[len(list) // 2])
+    return median
+
 input("Press Enter to continue...")
 # Let's work with the trip_duration now. We cant get some values from it.
 # TASK 9
@@ -241,7 +289,7 @@ trip_duration_list_ordened = sorted(trip_duration_list)
 min_trip = int(trip_duration_list_ordened[0])
 max_trip = int(trip_duration_list_ordened[-1])
 mean_trip = round(sum(trip_duration_list_ordened) / len(trip_duration_list_ordened))
-median_trip = int(trip_duration_list_ordened[len(trip_duration_list_ordened) // 2])
+median_trip = get_median(trip_duration_list_ordened)
 
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
